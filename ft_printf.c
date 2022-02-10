@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:12:55 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/09 22:57:51 by rabril-h         ###   ########.bcn      */
+/*   Updated: 2022/02/10 19:54:52 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_checkarg(char ch, va_list args)
 	else if (ch == 's')
 		print_arg += ft_putstr_cnt(va_arg(args, char *));
 	else if (ch == 'p')
-		printf("Need to print a pointer");
+		print_arg += ft_putptr_cnt(va_arg(args, unsigned long long));
 	else if (ch == 'd' || ch == 'i')
 		printf("Need to print a number");
 	else if (ch == 'u')
@@ -34,8 +34,8 @@ int		ft_checkarg(char ch, va_list args)
 	else if (ch == 'X')
 		printf("Need to print an uppercase hexadecmial number");
 	else if (ch == '%')
-		printf("Need to print just a %%");
-
+		print_arg += ft_putchar_cnt(ch);
+	//printf("print arga VALE %d\n", print_arg); 	
 	return (print_arg);
 }
 
@@ -56,14 +56,18 @@ int		ft_printf(const char *s, ...)
 		{
 			count++;
 			print += ft_checkarg(s[count], args);
+			//printf("print VALE EN EL RETRNO %d\n", print);
 		}
 		else
 		{
+			//printf("printo chars\n"); 
 			ft_putchar_fd(s[count], 1);
 			print++;
+			//printf("print VALE %d\n", print);
 		}
 		count++;	
 	}
+	//printf("print VALE %d\n", print); 
 	va_end(args);
 	return (print);
 }

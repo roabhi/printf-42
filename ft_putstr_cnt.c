@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 21:32:44 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/09 22:57:31 by rabril-h         ###   ########.bcn      */
+/*   Updated: 2022/02/10 15:16:17 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int	ft_putstr_cnt(const char *s)
 		return (l);
 	}
 	while (s[l])
-	{
-		l+= ft_putchar_cnt(s[l]);
-	}
+		l += ft_putchar_cnt(s[l]);
 	return (l);
 }
