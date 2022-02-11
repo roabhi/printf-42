@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:12:55 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/11 21:03:01 by rabril-h         ###   ########.bcn      */
+/*   Updated: 2022/02/11 21:18:47 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_checkarg(char ch, va_list args)
 	else if (ch == 'd' || ch == 'i')
 		print_arg += ft_putnbr_cnt(va_arg(args, int));
 	else if (ch == 'u')
-		printf("Need to print an unsigned number");
+		print_arg += ft_putunbr_cnt(va_arg(args, unsigned int), 0);
 	else if (ch == 'x')
 		printf("Need to print an hexadecimal number");
 	else if (ch == 'X')
