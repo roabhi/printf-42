@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:12:55 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/11 19:43:38 by rabril-h         ###   ########.bcn      */
+/*   Updated: 2022/02/11 21:03:01 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <unistd.h>
 #include "libftprintf.h"
 
-int		ft_checkarg(char ch, va_list args)
+int	ft_checkarg(char ch, va_list args)
 {
 	int		print_arg;
-	
+
 	print_arg = 0;
 	if (ch == 'c')
 		print_arg += ft_putchar_cnt(va_arg(args, int));
@@ -35,11 +35,10 @@ int		ft_checkarg(char ch, va_list args)
 		printf("Need to print an uppercase hexadecmial number");
 	else if (ch == '%')
 		print_arg += ft_putchar_cnt(ch);
-	//printf("print arga VALE %d\n", print_arg); 	
 	return (print_arg);
 }
 
-int		ft_printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
 	va_list		args;
 	int			count;
@@ -56,18 +55,14 @@ int		ft_printf(const char *s, ...)
 		{
 			count++;
 			print += ft_checkarg(s[count], args);
-			//printf("print VALE EN EL RETRNO %d\n", print);
 		}
 		else
 		{
-			//printf("printo chars\n"); 
 			ft_putchar_fd(s[count], 1);
 			print++;
-			//printf("print VALE %d\n", print);
 		}
-		count++;	
+		count++;
 	}
-	//printf("print VALE %d\n", print); 
 	va_end(args);
 	return (print);
 }
