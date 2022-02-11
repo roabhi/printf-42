@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:48:34 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/11 21:22:28 by rabril-h         ###   ########.bcn      */
+/*   Updated: 2022/02/11 23:22:23 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int		main()
 	char 		    str_3[] = "World";
 	int				num_1 = -21443247;
 	unsigned int	num_2 = 345;
+	unsigned int	num_3 = 123456789;
+	unsigned int	num_4 = 123456789;
 
 	int a;
 	int b;
@@ -63,6 +65,20 @@ int		main()
 	printf("mi FT retorna: %d\n", a);
 	b = printf("mi cadena es %u\n", num_2);
 	printf("printf retorna: %d\n", b);
+
+	printf("========= ft_printf numero base 16 (unsigned)  ==========\n\n");
+
+	a = ft_printf("mi cadena es %x\n", num_3);
+	printf("mi FT retorna: %d\n", a);
+	b = printf("mi cadena es %x\n", num_3);
+	printf("printf retorna %d\n", b);
+
+	printf("========= ft_printf numero base 16 (unsigned)  mayusculas ==========\n\n");
+
+	a = ft_printf("mi cadena es %X\n", num_4);
+	printf("mi FT retorna: %d\n", a);
+	b = printf("mi cadena es %X\n", num_4);
+	printf("printf retorna %d\n", b);
 	
 
 	return (0);

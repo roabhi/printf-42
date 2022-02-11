@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:12:55 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/11 21:18:47 by rabril-h         ###   ########.bcn      */
+/*   Updated: 2022/02/11 23:24:46 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_checkarg(char ch, va_list args)
 	else if (ch == 'u')
 		print_arg += ft_putunbr_cnt(va_arg(args, unsigned int), 0);
 	else if (ch == 'x')
-		printf("Need to print an hexadecimal number");
+		print_arg += ft_puthnbr_cnt(va_arg(args, unsigned int), 'h');
 	else if (ch == 'X')
-		printf("Need to print an uppercase hexadecmial number");
+		print_arg += ft_puthnbr_cnt(va_arg(args, unsigned int), 'H');
 	else if (ch == '%')
 		print_arg += ft_putchar_cnt(ch);
 	return (print_arg);

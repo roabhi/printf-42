@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr_cnt.c                                    :+:      :+:    :+:   */
+/*   ft_puthnbr_cnt.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 14:59:53 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/11 23:05:14 by rabril-h         ###   ########.bcn      */
+/*   Created: 2022/02/11 21:35:03 by rabril-h          #+#    #+#             */
+/*   Updated: 2022/02/11 23:11:10 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_putchar_forbase(unsigned long long x, char *base, int b, int count)
+int	ft_puthchar_forbase(unsigned int x, char *base, int b, int count)
 {
 	if (x >= b)
 	{
-		count += ft_putchar_forbase(x / b, base, b, count);
+		count += ft_puthchar_forbase(x / b, base, b, count);
 		write(1, &base[x % b], 1);
 	}
 	else if (x < b)
@@ -25,7 +25,7 @@ int	ft_putchar_forbase(unsigned long long x, char *base, int b, int count)
 	return (count);
 }
 
-int	ft_putptr_base(unsigned long long nbr, char *base)
+int	ft_puthnbr_base(unsigned int nbr, char *base)
 {
 	int	my_int_base;
 	int	c;
@@ -34,25 +34,19 @@ int	ft_putptr_base(unsigned long long nbr, char *base)
 	if (ft_strlen(base) > 1 && base != (void *)0)
 	{
 		my_int_base = (int)ft_strlen(base);
-		c += ft_putchar_forbase(nbr, base, my_int_base, c);
+		c += ft_puthchar_forbase(nbr, base, my_int_base, c);
 	}
 	return (c);
 }
 
-int	ft_putptr_cnt(unsigned long int n)
+int	ft_puthnbr_cnt(unsigned int n, char c)
 {
 	int	l;
 
 	l = 0;
-	if (!n)
-	{
-		l = ft_putstr_cnt("0x0");
-		return (l);
-	}
+	if (c == 'h')
+		l += ft_puthnbr_base(n, "0123456789abcdef");
 	else
-	{
-		l += ft_putstr_cnt("0x");
-		l += ft_putptr_base(n, "0123456789abcdef");
-	}
+		l += ft_puthnbr_base(n, "0123456789ABCDEF");
 	return (l);
 }
