@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:59:53 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/10 20:54:25 by rabril-h         ###   ########.bcn      */
+/*   Updated: 2022/02/11 19:13:19 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,7 @@ int	ft_putchar_forbase(unsigned long long x, char *base, int b, int count)
 	return (count);
 }
 
-int	ra_sanitizebase(char *str)
-{
-	unsigned long long	c;
-	unsigned long long	res;
-
-	c = 0;
-	res = 1;
-	while (str[c] != '\0')
-	{
-		if ((str[c] != str[c + 1]) && str[c] != 43 && str[c] != 45)
-			c++;
-		else
-		{
-			res = 0;
-			write(2, "Error", 5);
-			break ;
-		}
-	}
-	return (res);
-}
-
-int	ft_putnbr_base(unsigned long long nbr, char *base)
+int	ft_putptr_base(unsigned long long nbr, char *base)
 {
 	int	my_int_base;
 	int	c;
@@ -55,8 +34,7 @@ int	ft_putnbr_base(unsigned long long nbr, char *base)
 	if (ft_strlen(base) > 1 && base != (void *)0)
 	{
 		my_int_base = (int)ft_strlen(base);
-		if (ra_sanitizebase(base) == 1)
-			c += ft_putchar_forbase(nbr, base, my_int_base, c);
+		c += ft_putchar_forbase(nbr, base, my_int_base, c);
 	}
 	return (c);
 }
@@ -74,7 +52,7 @@ int	ft_putptr_cnt(unsigned long int n)
 	else
 	{
 		l += ft_putstr_cnt("0x");
-		l += ft_putnbr_base(n, "0123456789abcdef");
+		l += ft_putptr_base(n, "0123456789abcdef");
 	}
 	return (l);
 }
