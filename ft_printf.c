@@ -6,11 +6,10 @@
 /*   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:12:55 by rabril-h          #+#    #+#             */
-/*   Updated: 2022/02/11 23:24:46 by rabril-h         ###   ########.bcn      */
+/*   Updated: 2022/02/12 14:29:24 by rabril-h         ###   ########.bcn      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 #include "libftprintf.h"
 
